@@ -19,8 +19,12 @@ baseUrl = "http://127.0.0.1:5000/"
       return this.http.get(`${this.baseUrl}criminels`)
   }
   getById(criminelId: number): Observable<any> {
-    const url = `${this.baseUrl}criminels/${criminelId}`;
+    const url = `${this.baseUrl}getcriminel/${criminelId}`;
     return this.http.get(url);
+  }
+  delCriminel(criminelId : number) : Observable<any>{
+    const url = `${this.baseUrl}supcriminel/${criminelId}`;
+    return this.http.delete(url);
   }
 
   updateCriminel(criminelId: number, criminelData: any): Observable<any> {

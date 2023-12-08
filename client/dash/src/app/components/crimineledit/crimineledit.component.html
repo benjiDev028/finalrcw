@@ -17,12 +17,12 @@
 
     <div class="form-group">
       <label class="h4" for="derniereApparition">Dernière Apparition :</label>
-      <input class="form-control" id="derniereApparition" type="text" name="derniereApparition" [(ngModel)]="criminel.derniereApparition" #derniereApparition="ngModel" />
+      <input class="form-control" id="derniereApparition" type="text" name="derniereApparition" [(ngModel)]="criminel.derniereapparition" #derniereApparition="ngModel" />
     </div>
 
     <div class="form-group">
       <label class="h4" for="dureeRecherche">Durée Recherche :</label>
-      <input class="form-control" id="dureeRecherche" type="text" name="dureeRecherche" [(ngModel)]="criminel.dureeRecherche" #dureeRecherche="ngModel" />
+      <input class="form-control" id="dureeRecherche" type="text" name="dureeRecherche" [(ngModel)]="criminel.dureerecherche" #dureeRecherche="ngModel" />
     </div>
 
     <div class="form-group">
@@ -33,9 +33,18 @@
         <option value="en procès">En Procès</option>
       </select>
     </div>
+    <div class="form-group">
+      <label class="h4" for="images">Images :</label>
+      <!-- Affichage des images existantes -->
+      <div *ngFor="let image of criminel.images">
+        <img  [src]="'http://localhost:5000/' + image" style="width: 100px; height: 100px;" />
+      </div>
+      <!-- Chargement de nouvelles images -->
+      <input type="file" class="form-control" id="images" name="images" accept="image/*" multiple (change)="onImagesSelected($event)">
+    </div>
+
 
     <div class="form-group">
-      <button type="submit" class="btn btn-success" id="btn1">Modifier</button>
-      <button type="button" class="btn btn-danger" id="btn2" >Supprimer</button>
-      <button type="button" class="btn btn-secondary" id="btn3" ></button>
-    </div>
+      <button type="submit" class="btn btn-success" id="btn1" (click)="update()">Modifier</button>
+      <button type="button" class="btn btn-danger" id="btn2" (click)="delete()" >Supprimer</button>
+      <button type="button" class="btn btn-secondary" id="btn3" (click)="annuler()">Annuler</button>

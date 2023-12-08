@@ -26,13 +26,13 @@ export class CrimineleditComponent implements OnInit {
   nom: '',
   description :'',
 	crimecommis : '',
-  derniereApparition : '',
-  dureeRecherche : '',
+  derniereapparition : '',
+  dureerecherche : '',
   statut : '',
-  image :''
+  images :''
 
   };
-  selectedImage: File | undefined;
+  selectedImage: File[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -63,33 +63,67 @@ export class CrimineleditComponent implements OnInit {
       }
     });
 
+}
+onImagesSelected(event: any): void {
+  if (event.target.files && event.target.files.length > 0) {
+    this.selectedImage = Array.from(event.target.files);
+    // Ici, vous pouvez également prévisualiser les images si nécessaire
+  }
+}
+delete(): void{
+  if(this.CRIMINELID && confirm("etes vous sur de vouloir supprimer criminel ?")){
+    this.criminelsservice.delCriminel(this.CRIMINELID).subscribe({
+      next : (data: Criminel)=>{
+        console.log('criminel ',data,'a ete supprime');
+
+      },error: (error: any) => {
+        if (error.error.error) {
+            alert(error.error.error);
+        } else {
+            alert('Une erreur est survenue lors de suppression . Veuillez réessayer.');
+        }
+    },
+    });
+    this.router.navigate(['/listCriminels'])
+  }
+}
+
+update(): void {
+  const formData = new FormData();
+
+  // Ajoutez les propriétés textuelles du criminel
+  formData.append('nom', this.criminel.nom);
+  formData.append('description', this.criminel.description);
+  formData.append('crimecommis', this.criminel.crimecommis);
+  formData.append('derniereapparition', this.criminel.derniereapparition);
+  formData.append('dureerecherche', this.criminel.dureerecherche);
+  formData.append('statut', this.criminel.statut);
 
 
-  // getCriminel(CRIMINELID : any) {
-    // this.criminelsservice.getById(this.CRIMINELID ).subscribe({
-    //   next: (data: Criminel | any) => {
-    //     if (data) {
-    //       const dataArray: Criminel[] = [data];
-    //       const unCriminel = dataArray.find(f => f.CRIMINELID  === this.CRIMINELID );
-    //       if (unCriminel) {
-    //         console.log('L\'admin a été récupéré avec succès : ', unCriminel);
-    //       } else {
-    //         console.log('Aucun administrateur trouvé avec cet ID.');
-    //       }
-    //     } else {
-    //       console.log('Les données sont vides ou ne sont pas au format attendu.');
-    //     }
-    //   },
-    //   error: (e) => {
-    //     console.log('Erreur lors de la récupération de l\'admin : ', e);
-    //   },
-    //   complete: () => {
-    //     console.log(this.criminel);
-    //   }
-    // });
+  if (this.selectedImage) {
+    this.selectedImage.forEach((file) => {
+      formData.append('images', file, file.name);
+    });
+  }
 
-  // Ajoutez ici la logique pour la mise à jour du criminel avec le formulaire
-
-
+  // Envoi des données via le service
+  this.criminelsservice.updateCriminel(this.CRIMINELID, formData).subscribe({
+    next: (response) => {
+      console.log('Criminel mis à jour avec succès', response);
+      this.router.navigate(['/listCriminels']); // Redirection après la mise à jour
+    },
+    error: (error: any) => {
+      if (error.error.error) {
+          alert(error.error.error);
+      } else {
+          alert('Une erreur est survenue lors de suppression . Veuillez réessayer.');
+      }
+  }
+  });
+}
+annuler() : void{
+  this.router.navigate(['/listCriminels']);
 }
 }
+
+

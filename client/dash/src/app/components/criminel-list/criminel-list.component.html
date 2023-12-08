@@ -6,7 +6,7 @@
       <div class="card mb-5" style="width: 18rem;">
         <!-- Boucle pour afficher toutes les images du criminel -->
         <div *ngFor="let image of criminel.images">
-          <img class="card-img-top img-circle" [src]="'http://localhost:5000/' + image" alt="Image de {{criminel.nom}}">
+          <img class="card-img-top card-img-top" [src]="'http://localhost:5000/' + image"    style="width: 100px; height: 100px;" alt="Image de {{criminel.nom}}">
         </div>
 
         <div class="card-body">
