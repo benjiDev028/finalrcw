@@ -1,0 +1,41 @@
+<div class="container">
+  <form #criminelForm="ngForm">
+    <div class="form-group">
+      <label class="h4" for="nom">Nom :</label>
+      <input class="form-control" id="nom" type="text" name="nom" required [(ngModel)]="criminel.nom" #nom="ngModel" />
+    </div>
+
+    <div class="form-group">
+      <label class="h4" for="description">Description :</label>
+      <textarea class="form-control" id="description" name="description" required [(ngModel)]="criminel.description" #description="ngModel"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="h4" for="crimeCommis">Crime Commis :</label>
+      <input class="form-control" id="crimeCommis" type="text" name="crimeCommis" required [(ngModel)]="criminel.crimecommis" #crimeCommis="ngModel" />
+    </div>
+
+    <div class="form-group">
+      <label class="h4" for="derniereApparition">Dernière Apparition :</label>
+      <input class="form-control" id="derniereApparition" type="text" name="derniereApparition" [(ngModel)]="criminel.derniereApparition" #derniereApparition="ngModel" />
+    </div>
+
+    <div class="form-group">
+      <label class="h4" for="dureeRecherche">Durée Recherche :</label>
+      <input class="form-control" id="dureeRecherche" type="text" name="dureeRecherche" [(ngModel)]="criminel.dureeRecherche" #dureeRecherche="ngModel" />
+    </div>
+
+    <div class="form-group">
+      <label class="h4" for="statut">Statut :</label>
+      <select class="form-control" id="statut" name="statut" required [(ngModel)]="criminel.statut" #statut="ngModel">
+        <option value="recherche">Recherche</option>
+        <option value="capturé">Capturé</option>
+        <option value="en procès">En Procès</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-success" id="btn1">Modifier</button>
+      <button type="button" class="btn btn-danger" id="btn2" >Supprimer</button>
+      <button type="button" class="btn btn-secondary" id="btn3" ></button>
+    </div>

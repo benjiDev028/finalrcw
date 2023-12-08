@@ -1,0 +1,14 @@
+/* Ajoutez ce CSS dans votre feuille de style */
+.img-circle {
+  width: 50px; /* ou la taille que vous préférez pour vos bulles */
+  height: 50px; /* doit être égal à la largeur pour un cercle parfait */
+  border-radius: 50%; /* pour rendre l'image ronde */
+  object-fit: cover; /* pour s'assurer que l'image couvre bien la zone sans être déformée */
+}
+
+.card-img-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* Ajustez ceci si vous voulez que l'image soit plus petite ou plus grande */
+}

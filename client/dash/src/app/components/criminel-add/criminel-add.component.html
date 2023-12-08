@@ -1,0 +1,39 @@
+<div class="form-container">
+  <form [formGroup]="criminelForm" (ngSubmit)="onSubmit()"  ngNativeValidate>
+    <div class="form-group">
+      <h4>ajout criminel</h4>
+    </div>
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom" formControlName="nom">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="crimeCommis">Crime Commis</label>
+      <input type="text" id="crimeCommis"  formControlName="crimeCommis">
+    </div>
+
+    <div class="form-group">
+      <label for="derniereApparition">Dernière Apparition</label>
+      <input type="text" id="derniereApparition" formControlName="derniereApparition">
+    </div>
+
+    <div class="form-group">
+      <label for="dureeRecherche">Durée Recherche</label>
+      <input type="text" id="dureeRecherche" formControlName="dureeRecherche">
+    </div>
+
+    <div class="form-group">
+      <label for="images">Images du Criminel</label>
+      <input type="file" id="images" (change)="onFileSelect($event)" multiple>
+    </div>
+
+
+    <button type="submit">Ajouter Criminel</button>
+  </form>
+</div>
