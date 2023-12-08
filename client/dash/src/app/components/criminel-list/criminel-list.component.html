@@ -12,9 +12,10 @@
         <div class="card-body">
           <h5 class="card-title">Nom: {{criminel.nom}}</h5>
           <p class="card-text">Description: {{criminel.description}}</p>
-          <p class="card-text">Crime: {{criminel.crimeCommis}}</p>
-          <p class="card-text">Dernière apparition: {{criminel.derniereApparition}}</p>
-          <p class="card-text">Durée recherche: {{criminel.dureeRecherche}}</p>
+          <p class="card-text">Crime: {{criminel.crimecommis}}</p>
+          <p class="card-text">Dernière apparition: {{criminel.derniereapparition}}</p>
+          <p class="card-text">Durée recherche: {{criminel.dureerecherche}}</p>
+          <p class="card-text">Statut :{{criminel.statut}}</p>
           <p class="card-text">ID: {{criminel.id}}</p>
 
           <a [routerLink]="['/editCriminel', criminel.id]" class="btn btn-outline-warning">Édition</a>

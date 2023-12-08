@@ -2,9 +2,9 @@ export interface Criminel {
   criminelId?: any,
   nom: string;
   description: string,
-  crimecommis: string,
-  derniereapparition: string,
-  dureerecherche: string,
+  crimeCommis: string,
+  derniereApparition: string,
+  dureeRecherche: string,
   statut: string,
   images: string
 }

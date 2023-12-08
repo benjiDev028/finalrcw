@@ -2,32 +2,32 @@
   <form #criminelForm="ngForm">
     <div class="form-group">
       <label class="h4" for="nom">Nom :</label>
-      <input class="form-control" id="nom" type="text" name="nom" required [(ngModel)]="criminel.nom" #nom="ngModel" />
+    <input class="form-control" id="nom" type="text" name="nom" required [(ngModel)]="criminel.nom" #nom="ngModel" required/>
     </div>
 
     <div class="form-group">
       <label class="h4" for="description">Description :</label>
-      <textarea class="form-control" id="description" name="description" required [(ngModel)]="criminel.description" #description="ngModel"></textarea>
+      <textarea class="form-control" id="description" name="description" required [(ngModel)]="criminel.description" #description="ngModel" required></textarea>
     </div>
 
     <div class="form-group">
       <label class="h4" for="crimeCommis">Crime Commis :</label>
-      <input class="form-control" id="crimeCommis" type="text" name="crimeCommis" required [(ngModel)]="criminel.crimecommis" #crimeCommis="ngModel" />
+      <input class="form-control" id="crimeCommis" type="text" name="crimeCommis" required [(ngModel)]="criminel.crimeCommis" #crimecommis="ngModel" required />
     </div>
 
     <div class="form-group">
       <label class="h4" for="derniereApparition">Dernière Apparition :</label>
-      <input class="form-control" id="derniereApparition" type="text" name="derniereApparition" [(ngModel)]="criminel.derniereapparition" #derniereApparition="ngModel" />
+      <input class="form-control" id="derniereApparition" type="text" name="derniereApparition" [(ngModel)]="criminel.derniereApparition" #derniereApparition="ngModel" required/>
     </div>
 
     <div class="form-group">
       <label class="h4" for="dureeRecherche">Durée Recherche :</label>
-      <input class="form-control" id="dureeRecherche" type="text" name="dureeRecherche" [(ngModel)]="criminel.dureerecherche" #dureeRecherche="ngModel" />
+      <input class="form-control" id="dureeRecherche" type="text" name="dureeRecherche" [(ngModel)]="criminel.dureeRecherche" #dureeRecherche="ngModel" required />
     </div>
 
     <div class="form-group">
       <label class="h4" for="statut">Statut :</label>
-      <select class="form-control" id="statut" name="statut" required [(ngModel)]="criminel.statut" #statut="ngModel">
+      <select class="form-control" id="statut" name="statut" required [(ngModel)]="criminel.statut" #statut="ngModel" required>
         <option value="recherche">Recherche</option>
         <option value="capturé">Capturé</option>
         <option value="en procès">En Procès</option>

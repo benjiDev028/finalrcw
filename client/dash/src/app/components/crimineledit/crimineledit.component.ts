@@ -25,9 +25,9 @@ export class CrimineleditComponent implements OnInit {
 
   nom: '',
   description :'',
-	crimecommis : '',
-  derniereapparition : '',
-  dureerecherche : '',
+	crimeCommis : '',
+  derniereApparition : '',
+  dureeRecherche : '',
   statut : '',
   images :''
 
@@ -94,9 +94,9 @@ update(): void {
   // Ajoutez les propriétés textuelles du criminel
   formData.append('nom', this.criminel.nom);
   formData.append('description', this.criminel.description);
-  formData.append('crimecommis', this.criminel.crimecommis);
-  formData.append('derniereapparition', this.criminel.derniereapparition);
-  formData.append('dureerecherche', this.criminel.dureerecherche);
+  formData.append('crimeCommis', this.criminel.crimeCommis);
+  formData.append('derniereApparition', this.criminel.derniereApparition);
+  formData.append('dureeRecherche', this.criminel.dureeRecherche);
   formData.append('statut', this.criminel.statut);
 
 
